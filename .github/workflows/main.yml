@@ -1,0 +1,31 @@
+name: Docker build and push
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v2
+      with:
+        username: yasserrs
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: yasserrs/digitalize:backend
+        platforms: linux/amd64
