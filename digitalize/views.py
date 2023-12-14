@@ -74,8 +74,8 @@ def login(request):
             return JsonResponse({'token': token})
         else:
             return JsonResponse({'error': 'Invalid credentials'}, status=401)
-    except User.DoesNotExist:
-        return JsonResponse({'error': 'Invalid credentials'}, status=401)
+    except Exception as e:
+        return JsonResponse({'error': f'User does not exist {e}'}, status=401)
 
 
 
