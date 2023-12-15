@@ -1,4 +1,4 @@
-# README for Digitalize HUB Backend Project
+# README for Digitalize Hub Backend part
 
 ## Overview
 This README outlines the backend implementation for the Digitalize HUB project, focusing on user authentication, device management, and system settings.
