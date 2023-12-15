@@ -41,6 +41,18 @@ The project is configured to automatically create an admin user upon startup if 
 
 ## Deployment
 
+### CI/CD Workflow with Docker
+
+The project includes a GitHub Actions workflow for Continuous Integration and Continuous Deployment (CI/CD). The workflow is configured to:
+
+- Trigger on `workflow_dispatch` and `push` events to the `dev` branch.
+- Check out the repository code.
+- Set up Docker Buildx.
+- Log in to DockerHub using the provided username and a password stored in GitHub secrets.
+- Build and push the Docker image to DockerHub, tagging it as `yasserrs/digitalize:backend`.
+
+This workflow automates the process of building a Docker image for the backend and pushing it to DockerHub, ensuring that the latest version of the backend is containerized and readily deployable. Docker secrets are used to securely handle credentials.
+
 This project is configured for deployment using Docker and Nginx, ensuring ease of deployment and scalability. 
 
 ### Docker Configuration
