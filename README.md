@@ -15,13 +15,20 @@ This README outlines the backend implementation for the Digitalize HUB project, 
 - **Data Retrieval**: Endpoints to fetch all 'normal' users with their devices, and to retrieve all system settings.
 - **CORS**: Configured for cross-origin resource sharing.
 
-## Endpoints
-- `/register/`: User registration.
-- `/login/`: User login, returns a token.
-- `/devices/`: Fetch devices for a user.
-- `/device/toggle_status/`: Toggle device status.
-- `/settings/`: Get and update system settings.
-- `/users/`: Get normal users with their devices.
+### Endpoints
+
+The backend of the Digitalize HUB project includes the following endpoints:
+
+- **User Registration**: `/register/` allows new users to register.
+- **User Login**: `/login/` authenticates users and returns a token.
+- **Device Retrieval**: `/devices/` fetches devices associated with a user.
+- **Device Status Toggle**: `/devices/status/` toggles the status of a device between active and inactive.
+- **Change Registration Limit**: `/settings/registration_limit/` allows admins to change the daily user registration limit.
+- **Toggle User Registration**: `/settings/toggle_registration/` enables admins to toggle the user registration on or off.
+- **Get System Settings**: `/settings/` retrieves all system settings.
+- **Fetch Normal Users and Devices**: `/users/` gets all 'normal' users and their devices.
+
+Each endpoint serves specific functionalities, from user and device management to system settings adjustments.
 
 ### Admin User Creation on Startup
 The project is configured to automatically create an admin user upon startup if the user doesn't already exist. This is achieved through a function that checks for the existence of a default admin username. If the admin user is not found, it creates one with a predefined username and password. This functionality is particularly useful for ensuring that an admin account is always available for immediate access to the system, especially after the first deployment or when resetting the system. The password is securely hashed before storage.
